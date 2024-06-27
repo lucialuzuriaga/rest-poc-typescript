@@ -87,10 +87,8 @@ describe('User CRUD Tests', () =>{
             const response = await request.post(`/public/v2/users?`)
             .send(create)
             .set('Authorization', `Bearer ${token}`);
-            console.log(response.body);
             userId = response.body.id;
         }
-        console.log(userId);
         const response = await request.delete(`/public/v2/users/${userId}?`)
             .set('Authorization', `Bearer ${token}`);
         expect(204);
