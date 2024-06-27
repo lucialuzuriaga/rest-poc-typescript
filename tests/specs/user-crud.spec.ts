@@ -9,7 +9,7 @@ let gender;
 let status;
 
 describe('User CRUD Tests', () =>{
-       it('Should validate /POST Create new user', async () => {
+    it('Should validate /POST Create new user', async () => {
         const response = await request.post(`/public/v2/users`)
             .send(create)
             .set('Authorization', `Bearer ${token}`)
@@ -80,8 +80,6 @@ describe('User CRUD Tests', () =>{
         })
 
     it('Should validate /DELETE user', async () => {
-        const getUser = await request.get(`/public/v2/users/${userId}?`)
-            .set('Authorization', `Bearer ${token}`);
         if (userId === undefined || userId === null){
             console.log('userId is undefined or null. Creating new user.');
             const response = await request.post(`/public/v2/users?`)
